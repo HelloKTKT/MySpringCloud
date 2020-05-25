@@ -1,0 +1,23 @@
+server:
+  port: 8011
+spring:
+  application:
+    name: service-consumer
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://server1:8100/eureka,http://server2:8200/eureka,http://server3:8300/eureka
+logging:
+  config: classpath:log4j-test.xml
+
+feign:
+  hystrix:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream

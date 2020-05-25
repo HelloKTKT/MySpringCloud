@@ -1,0 +1,13 @@
+server:
+  port: 8021
+spring:
+  application:
+    name: hystrix-dashboard
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://server1:8100/eureka,http://server2:8200/eureka,http://server3:8300/eureka
+logging:
+  config: classpath:log4j-test.xml

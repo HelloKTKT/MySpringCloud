@@ -1,0 +1,12 @@
+server:
+  port: 8200
+
+eureka:
+  instance:
+    hostname: server2
+    instance-id: ${spring.application.name}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://server1:8100/eureka,http://server3:8300/eureka
+    register-with-eureka: true
+    fetch-registry: true
